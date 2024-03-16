@@ -2,9 +2,6 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 window.onload = function() {
   let who = ["The dog", "My grandma", "His turtle", "My bird"];
   let action = ["ate", "peed", "crushed", "broke"];
@@ -17,7 +14,7 @@ window.onload = function() {
     "while I was praying"
   ];
 
-  function generarExcusa() {
+  function excuseGenerator() {
     let randomWho = who[Math.floor(Math.random() * who.length)];
     let randomAction = action[Math.floor(Math.random() * action.length)];
     let randomWhat = what[Math.floor(Math.random() * what.length)];
@@ -26,10 +23,10 @@ window.onload = function() {
     return randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen;
   }
 
-  function MostrarExcusa() {
-    let excusa = generarExcusa();
-    document.getElementById("excuse").innerText = excusa;
+  function showExcuse() {
+    let excuse = excuseGenerator();
+    document.getElementById("excuse").innerText = excuse;
   }
 
-  MostrarExcusa();
+  showExcuse();
 };
