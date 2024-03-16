@@ -2,31 +2,34 @@
 import "bootstrap";
 import "./style.css";
 
+class ExcuseGenerator {
+  constructor() {
+    this.who = ["The dog", "My grandma", "His turtle", "My bird"];
+    this.action = ["ate", "peed", "crushed", "broke"];
+    this.what = ["my homework", "the keys", "the car"];
+    this.when = [
+      "before the class",
+      "right on time",
+      "when I finished",
+      "during my lunch",
+      "while I was praying"
+    ];
+  }
+
+  generateExcuse() {
+    let randomWho = this.who[Math.floor(Math.random() * this.who.length)];
+    let randomAction = this.action[
+      Math.floor(Math.random() * this.action.length)
+    ];
+    let randomWhat = this.what[Math.floor(Math.random() * this.what.length)];
+    let randomWhen = this.when[Math.floor(Math.random() * this.when.length)];
+
+    return `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}`;
+  }
+}
+
 window.onload = function() {
-  let who = ["The dog", "My grandma", "His turtle", "My bird"];
-  let action = ["ate", "peed", "crushed", "broke"];
-  let what = ["my homework", "the keys", "the car"];
-  let when = [
-    "before the class",
-    "right on time",
-    "when I finished",
-    "during my lunch",
-    "while I was praying"
-  ];
-
-  function excuseGenerator() {
-    let randomWho = who[Math.floor(Math.random() * who.length)];
-    let randomAction = action[Math.floor(Math.random() * action.length)];
-    let randomWhat = what[Math.floor(Math.random() * what.length)];
-    let randomWhen = when[Math.floor(Math.random() * when.length)];
-
-    return randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen;
-  }
-
-  function showExcuse() {
-    let excuse = excuseGenerator();
-    document.getElementById("excuse").innerText = excuse;
-  }
-
-  showExcuse();
+  const excuseGenerator = new ExcuseGenerator();
+  const excuseElement = document.getElementById("excuse");
+  excuseElement.innerText = excuseGenerator.generateExcuse();
 };
